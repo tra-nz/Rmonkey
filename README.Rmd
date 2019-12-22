@@ -1,0 +1,57 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+Rmonkey provides access to Survey Monkey, for the complete integration of survey data collection and analysis into a single, easily reproducible workflow. It used to be on CRAN. SurveyMoneky broke the package when they changed their API, and it's only on GitHub for now as it comes back to life.
+
+It is a simplified version of Rmonkey package. You may also see https://github.com/cloudyr/Rmonkey, https://github.com/sfirke/Rmonkey and https://github.com/sfirke/Rmonkey.
+
+It is now working for getting surveys from Surveymonkey. 
+
+Is it going to work for all cases? No! However it was usefull for me :)
+Can you update functions to make it more general? Sure!
+
+## Installation
+
+Rmonkey is available on GitHub:
+
+```{r, eval = FALSE}
+devtools::install_github("douglasmesquita/Rmonkey")
+```
+
+## Setup
+
+To use Rmonkey, the user must have a Survey Monkey account, a Mashery Survey Monkey Developer account, and a registered API application. To create a Survey Monkey account, visit https://www.surveymonkey.com/user/sign-in/. You'll need to get an OAuth token (*provide more detailed instructions*).
+
+Once everything is registered, you can load your token with:
+```{r, eval = FALSE}
+# Use your OAuth token here
+options(sm_oauth_token = "yourtoken")
+```
+
+## Using Rmonkey
+
+### Retrieving survey responses
+
+First get a list of surveys in your account and fetch the one you want by name:
+```{r, eval = FALSE}
+s <- survey_list(per_page = 200) # increase the per_page if your survey is really old and you give a lot of surveys
+```
+
+Then get the responses from that survey into a data.frame:
+```{r, eval = FALSE}
+dat <- survey_responses(test_survey)
+dat
+```

@@ -1,19 +1,30 @@
 Package: Rmonkey
-Version: 0.3.3
-Date: 2016-03-20
-Title: A Survey Monkey R Client
-Authors@R: c(person("Thomas J.", "Leeper",
-                    role = c("aut", "cre"), 
-                    email = "thosjleeper@gmail.com",
-                    comment = c(ORCID = "0000-0003-4097-6326")),
+Version: 0.1
+Date: 2019-12-22
+Title: Getting Survey Monkey Surveys from R
+Authors@R: c(person("Thomas J.", "Leeper", role = c("aut", "cre"),
+                    email = "thosjleeper@gmail.com"),
+             person("Sean", "Fahey", role = "ctb", 
+                    email = "seanmfahey@yahoo.com"),
              person("Kevin", "Little", role = "ctb", 
                     email = "klittle@iecodesign.com"),
              person("David", "Robinson", role = "ctb", 
                     email = "drobinson@stackoverflow.com"),
-             person("Stephan", "Renatus", role = "ctb"))
-Maintainer: Thomas J. Leeper <thosjleeper@gmail.com>
-Imports: stats, utils, httr, jsonlite, curl, plyr
-Description: Programmatic access to the Survey Monkey API <https://developer.surveymonkey.com/>, which currently provides extensive functionality for monitoring surveys and retrieving survey results and some functionality for creating new surveys and data collectors.
-License: GPL-2
+             person("Stephan", "Renatus", role = "ctb"),
+             person("Azevedo", "Douglas", role = "ctb"))
+Maintainer: Douglas Azevedo <douglasrm.azevedo@gmail.com>
+Imports:
+    stats,
+    utils,
+    httr,
+    jsonlite,
+    curl,
+    dplyr,
+    Hmisc,
+    purrr
+Description: Programmatic access to the Survey Monkey API <https://
+    developer.surveymonkey.com/>. It is a simplification of Rmonkey package (https://github.com/cloudyr/Rmonkey and https://github.com/sfirke/Rmonkey) 
 URL: https://github.com/cloudyr/Rmonkey
 BugReports: https://github.com/cloudyr/Rmonkey/issues
+License: GPL-2
+RoxygenNote: 6.1.1
