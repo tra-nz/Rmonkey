@@ -12,10 +12,11 @@ It is a simplified version of Rmonkey package. You may also see
 and
 <a href="https://github.com/sfirke/Rmonkey" class="uri">https://github.com/sfirke/Rmonkey</a>.
 
-It is now working for getting surveys from Surveymonkey.
+It is now working for getting surveys from Survey Monkey.
 
-Is it going to work for all cases? No! However it was usefull for me :)
-Can you update functions to make it more general? Sure!
+-   Is it going to work for all cases? No! However it was usefull for me
+    :)
+-   Can you update functions to make it more general? Sure!
 
 Installation
 ------------

@@ -18,10 +18,10 @@ Rmonkey provides access to Survey Monkey, for the complete integration of survey
 
 It is a simplified version of Rmonkey package. You may also see https://github.com/cloudyr/Rmonkey, https://github.com/sfirke/Rmonkey and https://github.com/sfirke/Rmonkey.
 
-It is now working for getting surveys from Surveymonkey. 
+It is now working for getting surveys from Survey Monkey. 
 
-Is it going to work for all cases? No! However it was usefull for me :)
-Can you update functions to make it more general? Sure!
++ Is it going to work for all cases? No! However it was usefull for me :)
++ Can you update functions to make it more general? Sure!
 
 ## Installation
 
