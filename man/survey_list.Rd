@@ -4,10 +4,18 @@
 \alias{survey_list}
 \title{survey_list}
 \usage{
-survey_list(page = NULL, per_page = NULL, sort_by = NULL,
-  sort_order = NULL, start_modified_at = NULL,
-  end_modified_at = NULL, title = NULL, include = NULL,
-  oauth_token = getOption("sm_oauth_token"), ...)
+survey_list(
+  page = NULL,
+  per_page = NULL,
+  sort_by = NULL,
+  sort_order = NULL,
+  start_modified_at = NULL,
+  end_modified_at = NULL,
+  title = NULL,
+  include = NULL,
+  oauth_token = getOption("sm_oauth_token"),
+  ...
+)
 }
 \arguments{
 \item{page}{Integer number to select which page of resources to return. By default is 1.}

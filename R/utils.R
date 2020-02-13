@@ -36,10 +36,10 @@ parse_respondent_list <- function(respondents){
   out <- out %>%
     dplyr::mutate(subquestion_id = choice_id) %>%
     dplyr::rename(answerchoice_id = other_id,
-                  answertext = text) %>%
+                  answer_text = text) %>%
     dplyr::mutate(choice_id = dplyr::coalesce(choice_id, answerchoice_id)) %>% ##-- When answerchoice_id is not NA, choice_id is NA
     dplyr::select(-answerchoice_id) %>%
-    dplyr::select(survey_id, collector_id, recipient_id, response_id, dplyr::everything())
+    dplyr::select(survey_id, collector_id, recipient_id, response_id, question_id, choice_id, subquestion_id, answer_text)
   
   return(out)
 }

@@ -4,12 +4,22 @@
 \alias{get_responses}
 \title{get_responses}
 \usage{
-get_responses(survey, collector = NULL, bulk = FALSE, page = 1,
-  all_pages = FALSE, per_page = NULL, start_created_at = NULL,
-  end_created_at = NULL, start_modified_at = NULL,
-  end_modified_at = NULL, sort_order = "DESC",
-  sort_by = "date_modified", oauth_token = getOption("sm_oauth_token"),
-  ...)
+get_responses(
+  survey,
+  collector = NULL,
+  bulk = FALSE,
+  page = 1,
+  all_pages = FALSE,
+  per_page = NULL,
+  start_created_at = NULL,
+  end_created_at = NULL,
+  start_modified_at = NULL,
+  end_modified_at = NULL,
+  sort_order = "DESC",
+  sort_by = "date_modified",
+  oauth_token = getOption("sm_oauth_token"),
+  ...
+)
 }
 \arguments{
 \item{survey}{A sm_survey object, as retrieved by \code{surveylist()}.}

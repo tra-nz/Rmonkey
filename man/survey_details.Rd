@@ -4,8 +4,12 @@
 \alias{survey_details}
 \title{survey_details}
 \usage{
-survey_details(survey, question_details = TRUE,
-  oauth_token = getOption("sm_oauth_token"), ...)
+survey_details(
+  survey,
+  question_details = TRUE,
+  oauth_token = getOption("sm_oauth_token"),
+  ...
+)
 }
 \arguments{
 \item{survey}{A sm_survey object, as retrieved by \code{surveylist()}.}

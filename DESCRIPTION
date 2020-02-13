@@ -27,4 +27,4 @@ Description: Programmatic access to the Survey Monkey API <https://
 URL: https://github.com/cloudyr/Rmonkey
 BugReports: https://github.com/cloudyr/Rmonkey/issues
 License: GPL-2
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
