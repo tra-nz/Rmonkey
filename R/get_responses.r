@@ -101,6 +101,8 @@ get_responses <- function(survey,
   
   out <- httr::GET(url = u, config = h, query = b, ...)
   httr::stop_for_status(out)
+  message(paste0("you have ", out$headers$`x-ratelimit-app-global-day-remaining`, 
+                 " requests left today before you hit the limit. reset at ",lubridate::now()+as.numeric(out$headers$`x-ratelimit-app-global-day-reset`)," UTC"))
   parsed_content <- httr::content(out, as = 'parsed')
   
   if (!is.null(parsed_content$data)) {

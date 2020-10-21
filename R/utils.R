@@ -23,7 +23,10 @@ parse_response <- function(response){
     dplyr::mutate(response_id = response$id,
                   collector_id = response$collector_id,
                   survey_id = response$survey_id,
-                  recipient_id = response$recipient_id)
+                  recipient_id = response$recipient_id,
+                  date_created = response$date_created, 
+                  date_modified = response$date_modified, 
+                  total_time = response$total_time)
   
   return(out)
 }
@@ -39,7 +42,7 @@ parse_respondent_list <- function(respondents){
                   answer_text = text) %>%
     dplyr::mutate(choice_id = dplyr::coalesce(choice_id, answerchoice_id)) %>% ##-- When answerchoice_id is not NA, choice_id is NA
     dplyr::select(-answerchoice_id) %>%
-    dplyr::select(survey_id, collector_id, recipient_id, response_id, question_id, choice_id, subquestion_id, answer_text)
+    dplyr::select(survey_id, collector_id, recipient_id, date_created, date_modified, total_time, response_id, question_id, choice_id, subquestion_id, answer_text)
   
   return(out)
 }
