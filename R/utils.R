@@ -52,7 +52,7 @@ get_ind_question_info <- function(question) {
   heading <- question$headings[[1]]$heading
   if(is.null(heading)) heading <- NA
   
-  out <- dplyr::data_frame(heading = heading,
+  out <- dplyr::tibble(heading = heading,
                            question_id = question$id,
                            question_type = question$family,
                            question_subtype = question$subtype)
@@ -108,7 +108,7 @@ parse_rows <- function(question) {
     rows <- NULL
   }
   
-  out <- dplyr::as_data_frame(rows) %>%
+  out <- dplyr::as_tibble(rows) %>%
     dplyr::mutate(question_id = question$id)
   
   return(out)
