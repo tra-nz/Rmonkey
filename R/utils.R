@@ -37,9 +37,10 @@ parse_respondent_list <- function(respondents){
   if(!("other_id" %in% names(out))) out$other_id <- NA_character_
   
   out <- out %>%
-    dplyr::mutate(subquestion_id = choice_id) %>%
+    # dplyr::mutate(subquestion_id = choice_id) %>%
     dplyr::rename(answerchoice_id = other_id,
-                  answer_text = text) %>%
+                  answer_text = text,
+                  subquestion_id = row_id ) %>%
     dplyr::mutate(choice_id = dplyr::coalesce(choice_id, answerchoice_id)) %>% ##-- When answerchoice_id is not NA, choice_id is NA
     dplyr::select(-answerchoice_id) %>%
     dplyr::select(survey_id, collector_id, recipient_id, date_created, date_modified, total_time, response_id, question_id, choice_id, subquestion_id, answer_text)
@@ -101,8 +102,8 @@ parse_page_for_rows <- function(page) {
 }
 
 parse_rows <- function(question) {
-  if(!is.null(question$answers$choices)){
-    rows <- dplyr::bind_rows(question$answers$choices)
+  if(!is.null(question$answers$rows)){
+    rows <- dplyr::bind_rows(question$answers$rows)
   } else {
     rows <- NULL
   }

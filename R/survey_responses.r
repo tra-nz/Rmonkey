@@ -15,8 +15,9 @@ survey_responses <- function(survey) {
   sc <- survey_choices(survey)
   
   resp_full <- dplyr::left_join(sr, sc, by = c("survey_id", "choice_id", "question_id")) %>%
-    mutate(subquestion_id = if_else(is.na(subquestion_id), question_id, subquestion_id))
-  
+    mutate(subquestion_id = if_else(is.na(subquestion_id), question_id, subquestion_id)) %>%
+    dplyr::mutate(answer_text = dplyr::if_else(is.na(answer_text), text, answer_text)) 
+    
   resp_full <- dplyr::left_join(resp_full, sq, by =  c("survey_id", "question_id", "subquestion_id")) %>%
     dplyr::mutate(question_type = dplyr::if_else(is.na(question_type), "open_ended", question_type),
                   question_subtype = dplyr::if_else(is.na(question_subtype), "single", question_subtype))
