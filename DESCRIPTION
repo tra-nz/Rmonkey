@@ -21,10 +21,11 @@ Imports:
     curl,
     dplyr,
     Hmisc,
-    purrr
+    purrr,
+    lubridate
 Description: Programmatic access to the Survey Monkey API <https://
     developer.surveymonkey.com/>. It is a simplification of Rmonkey package (https://github.com/cloudyr/Rmonkey and https://github.com/sfirke/Rmonkey) 
 URL: https://github.com/cloudyr/Rmonkey
 BugReports: https://github.com/cloudyr/Rmonkey/issues
 License: GPL-2
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
