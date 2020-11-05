@@ -4,10 +4,24 @@
 \alias{survey_responses}
 \title{survey_responses}
 \usage{
-survey_responses(survey)
+survey_responses(
+  survey,
+  start_created_at = NULL,
+  end_created_at = NULL,
+  start_modified_at = NULL,
+  end_modified_at = NULL
+)
 }
 \arguments{
 \item{survey}{A sm_survey object, as retrieved by \code{surveylist()}.}
+
+\item{start_created_at}{Date string used to select surveys created after this date. By default is NULL.}
+
+\item{end_created_at}{Date string used to select surveys modified before this date. By default is NULL.}
+
+\item{start_modified_at}{Date string used to select surveys last modified after this date. By default is NULL.}
+
+\item{end_modified_at}{Date string used to select surveys modified before this date. By default is NULL.}
 }
 \value{
 A data frame with survey responses

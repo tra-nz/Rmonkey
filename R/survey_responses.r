@@ -3,13 +3,25 @@
 #' @description Extracts data from the survey responses data set and formats it as a data frame for analysis
 #' 
 #' @param survey A sm_survey object, as retrieved by \code{surveylist()}.
+#' @param start_created_at Date string used to select surveys created after this date. By default is NULL.
+#' @param end_created_at Date string used to select surveys modified before this date. By default is NULL.
+#' @param start_modified_at Date string used to select surveys last modified after this date. By default is NULL.
+#' @param end_modified_at Date string used to select surveys modified before this date. By default is NULL.
 #' 
 #' @return A data frame with survey responses
 #' 
 #' @export
 
-survey_responses <- function(survey) {
-  sr <- get_responses(survey, bulk = TRUE, all_page = TRUE, per_page = 100)
+survey_responses <- function(survey,                          
+                             start_created_at = NULL,
+                             end_created_at = NULL,
+                             start_modified_at = NULL,
+                             end_modified_at = NULL) {
+  sr <- get_responses(survey, bulk = TRUE, all_page = TRUE, per_page = 100,                         
+                      start_created_at = start_created_at,
+                      end_created_at = end_created_at,
+                      start_modified_at = start_modified_at,
+                      end_modified_at = end_modified_at)
   sr <- parse_respondent_list(sr)
   sq <- survey_questions(survey)
   sc <- survey_choices(survey)
