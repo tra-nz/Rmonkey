@@ -10,7 +10,7 @@ It is a simplified version of Rmonkey package. You may also see
 <a href="https://github.com/cloudyr/Rmonkey" class="uri">https://github.com/cloudyr/Rmonkey</a>,
 <a href="https://github.com/sfirke/Rmonkey" class="uri">https://github.com/sfirke/Rmonkey</a>
 and
-<a href="https://github.com/sfirke/Rmonkey" class="uri">https://github.com/sfirke/Rmonkey</a>.
+<a href="https://github.com/douglasmesquita/Rmonkey" class="uri">https://github.com/douglasmesquita/Rmonkey</a>.
 
 It is now working for getting surveys from Survey Monkey.
 
@@ -24,7 +24,7 @@ Installation
 Rmonkey is available on GitHub:
 
 ``` r
-devtools::install_github("douglasmesquita/Rmonkey")
+devtools::install_github("tra-nz/Rmonkey")
 ```
 
 Setup
@@ -54,6 +54,12 @@ by name:
 
 ``` r
 s <- survey_list(per_page = 200) # increase the per_page if your survey is really old and you give a lot of surveys
+```
+
+this returns a list of surveys `s`. you can pick and element from this list manually (ie `s[1]`) or use a select the target by name or id using `find_survey_by_name` or `find_survey_by_id`
+
+``` r
+test_survey <- find_survey_by_name("NAME OF SURVEY", s)
 ```
 
 Then get the responses from that survey into a data.frame:
