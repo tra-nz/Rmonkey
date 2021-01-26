@@ -40,7 +40,7 @@ survey_responses <- function(survey,
                   question_id, question_type, heading, question_position,
                   subquestion_id, question_subtype, subquestion_text, subquestion_position,
                   choice_id, choice_other, choice_position, answer_text, 
-                  collection_mode,status, ip_address, edit_url, analyse_url)
+                  collection_mode,status, ip_address, edit_url, analyse_url,page_position)
   
   return(resp_full)
 }

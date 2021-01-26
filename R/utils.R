@@ -69,7 +69,7 @@ get_ind_question_info <- function(question) {
 
 parse_page_of_questions <- function(page) {
   out <- purrr::map_df(page$questions, get_ind_question_info)
-  
+  out$page_position = page$position
   return(out)
 }
 

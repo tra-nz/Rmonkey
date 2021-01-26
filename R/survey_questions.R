@@ -19,7 +19,7 @@ survey_questions <- function(survey) {
     dplyr::select(question_id, subquestion_id, subquestion_text = text, subquestion_position = position)
   
   full_questions <- dplyr::full_join(questions, rows, by = "question_id") %>%
-    dplyr::select(survey_id, question_id, question_type, question_subtype, subquestion_id, heading, subquestion_text,question_position,subquestion_position) 
+    dplyr::select(survey_id, question_id, question_type, question_subtype, subquestion_id, heading, subquestion_text,page_position,question_position,subquestion_position) 
   
   return(full_questions)
 }
