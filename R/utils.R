@@ -61,7 +61,8 @@ get_ind_question_info <- function(question) {
   out <- dplyr::tibble(heading = heading,
                            question_id = question$id,
                            question_type = question$family,
-                           question_subtype = question$subtype)
+                           question_subtype = question$subtype,
+                           question_position = question$position)
   
   return(out)
 }
@@ -74,9 +75,10 @@ parse_page_of_questions <- function(page) {
 
 parse_answer_choices <- function(question) {
   if(!is.null(question$answers$other)){
-    other <-  question$answers$other %>%
+      other <-  question$answers$other %>%
       dplyr::bind_rows() %>%
       dplyr::select(id, visible, text, position)
+      other$choice_other = T
   } else{
     other <- NULL
   }
@@ -84,6 +86,7 @@ parse_answer_choices <- function(question) {
   if(!is.null(question$answers)){ # some basic Qs like comment box don't even have answer choices
     choices <- question$answers$choices %>%
       dplyr::bind_rows()
+    choices$choice_other = F
   } else {
     choices <- NULL
   }
@@ -91,9 +94,11 @@ parse_answer_choices <- function(question) {
   out <- dplyr::bind_rows(choices, other) %>%
     dplyr::mutate(question_id = question$id)
   
+  if("position" %in% names(out)) {out = dplyr::rename(out,choice_position = position)}
+  
   if(!("weight" %in% names(out)))
     out <- out %>% dplyr::mutate(weight = rep(NA, dplyr::n()))
-  
+   
   return(out)
 }
 

@@ -37,9 +37,10 @@ survey_responses <- function(survey,
   resp_full <- resp_full %>%
     dplyr::mutate(answer_text = dplyr::if_else(is.na(answer_text), subquestion_text, answer_text)) %>%
     dplyr::select(survey_id, collector_id, recipient_id, date_created, date_modified, total_time, response_id, 
-                  question_id, question_type, heading, 
-                  subquestion_id, question_subtype, subquestion_text,
-                  choice_id, answer_text, collection_mode,status, ip_address, edit_url, analyse_url)
+                  question_id, question_type, heading, question_position,
+                  subquestion_id, question_subtype, subquestion_text, subquestion_position,
+                  choice_id, choice_other, choice_position, answer_text, 
+                  collection_mode,status, ip_address, edit_url, analyse_url)
   
   return(resp_full)
 }

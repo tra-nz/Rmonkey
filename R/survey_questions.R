@@ -16,11 +16,10 @@ survey_questions <- function(survey) {
   
   rows <- purrr::map_df(sd$pages, parse_page_for_rows) %>%
     dplyr::rename(subquestion_id = id) %>%
-    dplyr::select(question_id, subquestion_id, subquestion_text = text)
+    dplyr::select(question_id, subquestion_id, subquestion_text = text, subquestion_position = position)
   
   full_questions <- dplyr::full_join(questions, rows, by = "question_id") %>%
-    dplyr::select(survey_id, question_id, question_type, question_subtype, subquestion_id, heading, subquestion_text) %>%
-    dplyr::mutate(subquestion_id = dplyr::if_else(is.na(subquestion_id), question_id, subquestion_id))
+    dplyr::select(survey_id, question_id, question_type, question_subtype, subquestion_id, heading, subquestion_text,question_position,subquestion_position) 
   
   return(full_questions)
 }
@@ -40,7 +39,7 @@ survey_choices <- function(survey) {
   
   out <- purrr::map_df(sd$pages, parse_page_for_choices) %>%
     dplyr::mutate(survey_id = sd$id) %>%
-    dplyr::select(survey_id, question_id, choice_id = id, text, weight, position)
+    dplyr::select(survey_id, question_id, choice_id = id, text, weight, choice_position,choice_other)
   
   return(out)
 }
